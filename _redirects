@@ -1,0 +1,9 @@
+[[redirects]]
+  from = "/sponsor-zones"
+  to = "/race90_sponsor_zones.html"
+  status = 200
+
+[[redirects]]
+  from = "/zones"
+  to = "/race90_sponsor_zones.html"
+  status = 200
