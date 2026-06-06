@@ -111,7 +111,21 @@ footer{background:#040c18;border-top:1px solid rgba(200,146,42,.1);padding:36px 
 .fl{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:16px;color:var(--gold);text-transform:uppercase;letter-spacing:.08em}
 .fc{font-size:11px;color:rgba(122,143,168,.38)}
 .ft{font-size:11px;color:rgba(122,143,168,.28);font-style:italic}
-@media(max-width:860px){nav{padding:0 14px}.nm{display:none}.hero,.hero{padding:60px 18px 160px}sec{padding:56px 18px}.hbar{flex-wrap:wrap}.hbi{flex:50%}.ph{grid-template-columns:1fr}.phc{height:280px}.psr,.vg,.rg,.spg,.tiers,.g3,.g2,.g4,.gal{grid-template-columns:1fr}.cb{flex-direction:column;text-align:center;padding:32px 18px}footer{flex-direction:column;gap:10px;text-align:center;padding:26px 18px}.gr{margin:0 18px}}
+
+/* HAMBURGER */
+.hb-btn{display:none;flex-direction:column;justify-content:space-between;width:28px;height:20px;background:none;border:none;cursor:pointer;padding:0;margin-left:14px;flex-shrink:0}
+.hb-btn span{display:block;width:100%;height:2px;background:var(--glt);border-radius:2px;transition:all .25s}
+.hb-btn.open span:nth-child(1){transform:translateY(9px) rotate(45deg)}
+.hb-btn.open span:nth-child(2){opacity:0}
+.hb-btn.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
+.mob-menu{display:none;position:fixed;top:54px;left:0;right:0;z-index:199;background:rgba(8,18,34,.98);border-bottom:2px solid var(--gold);flex-direction:column;padding:8px 0 16px;backdrop-filter:blur(10px)}
+.mob-menu.open{display:flex}
+.mob-menu a{padding:14px 28px;font-family:'Barlow Condensed',sans-serif;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);transition:color .2s}
+.mob-menu a:hover{color:var(--glt)}
+.mob-menu a:last-child{border-bottom:none}
+.mob-cta{background:var(--gold)!important;color:var(--navy)!important;margin:12px 20px 0;border-radius:2px;text-align:center;border-bottom:none!important}
+
+@media(max-width:860px){nav{padding:0 14px}.nm{display:none}.hb-btn{display:flex}#nav-cta{display:none}.hero,.hero{padding:60px 18px 160px}sec{padding:56px 18px}.hbar{flex-wrap:wrap}.hbi{flex:50%}.ph{grid-template-columns:1fr}.phc{height:280px}.psr,.vg,.rg,.spg,.tiers,.g3,.g2,.g4,.gal{grid-template-columns:1fr}.cb{flex-direction:column;text-align:center;padding:32px 18px}footer{flex-direction:column;gap:10px;text-align:center;padding:26px 18px}.gr{margin:0 18px}}
 </style>
 </head>
 <body>
@@ -126,8 +140,21 @@ footer{background:#040c18;border-top:1px solid rgba(200,146,42,.1);padding:36px 
     <a href="#" id="n-sponsorus" onclick="go('sponsorus')">Sponsor Us</a>
     <a href="#" id="n-contact" onclick="go('contact')">Contact</a>
   </div>
-  <a href="#" onclick="go('sponsorus')" class="nc">Your Name Goes Here →</a>
+  <a href="#" onclick="go('sponsorus')" class="nc" id="nav-cta">Your Name Goes Here →</a>
+  <button class="hb-btn" onclick="toggleMenu()" id="hb-btn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mob-menu" id="mob-menu">
+  <a href="#" onclick="go('home');toggleMenu()">Home</a>
+  <a href="#" onclick="go('pilot');toggleMenu()">The Pilot</a>
+  <a href="#" onclick="go('racing');toggleMenu()">Air Racing</a>
+  <a href="#" onclick="go('aircraft');toggleMenu()">Race #90</a>
+  <a href="#" onclick="go('sponsors');toggleMenu()">Sponsors</a>
+  <a href="#" onclick="go('sponsorus');toggleMenu()">Sponsor Us</a>
+  <a href="#" onclick="go('contact');toggleMenu()">Contact</a>
+  <a href="#" onclick="go('sponsorus');toggleMenu()" class="mob-cta">Your Name Goes Here →</a>
+</div>
 
 <div class="pg on" id="p-home">
 <div class="hero">
@@ -252,7 +279,7 @@ footer{background:#040c18;border-top:1px solid rgba(200,146,42,.1);padding:36px 
     <div>
       <div style="display:grid;grid-template-columns:1fr;gap:16px">
         <div class="vc"><iframe src="https://www.youtube.com/embed/EXmhETTWXkw" title="T-6 Silver Race 2018 Reno" allowfullscreen loading="lazy"></iframe><div class="vl"><strong>2018 Reno T-6 Silver Race</strong>Race #90 Undecided and #89 Baby Boomer — father and son together on the Reno course. Miss TnT, Big Red, Gotcha, Abracadabra.</div></div>
-        <div class="vc"><iframe src="https://www.youtube.com/embed/Kutrv12868I" title="AeroShell Night Show Oshkosh 2016" allowfullscreen loading="lazy"></iframe><div class="vl"><strong>AeroShell Night Show — EAA Oshkosh 2016</strong>Gene McNeely in the slot. Cameras mounted on aircraft. The show he called "absolutely incredible to look down and see all the cameras flashing."</div></div>
+        <div class="vc"><iframe src="https://www.youtube.com/embed/B8C4enqcKiY" title="AeroShell / Titan Team Full Performance Oshkosh 2023" allowfullscreen loading="lazy"></iframe><div class="vl"><strong>AeroShell / Titan Aerobatic Team — EAA Oshkosh 2023</strong>The full performance — the team Gene helped build over 24 years, now supported by Greg in 2026.</div></div>
         <div class="vc"><iframe src="https://www.youtube.com/embed/O78vevBNWaA" title="Reno Air Races 2023 Final Year" allowfullscreen loading="lazy"></iframe><div class="vl"><strong>Reno Air Races 2023 — The Final Year</strong>The last races at Reno-Stead. T-6 class, Unlimited, jets. Greg's Silver finish weekend.</div></div>
         <div class="vc"><iframe src="https://www.youtube.com/embed/B8C4enqcKiY" title="AeroShell Aerobatics Full Performance Oshkosh 2023" allowfullscreen loading="lazy"></iframe><div class="vl"><strong>AeroShell / Titan Team Full Performance — Oshkosh 2023</strong>The Titan Aerobatic Team's performance — the team Gene helped build and that Greg supports in 2026.</div></div>
       </div>
@@ -282,6 +309,70 @@ footer{background:#040c18;border-top:1px solid rgba(200,146,42,.1);padding:36px 
     <a class="rc" href="http://race90.com" target="_blank" rel="noopener"><div class="rcat">Official Team Site</div><div class="rt">Race 90 — Official Team Page</div><div class="ru">race90.com</div><div class="rd">The official homepage of the Race 90 T-6 air racing team.</div></a>
     <a class="rc" href="https://vintageaviationnews.com/warbirds-news/tickets-now-available-for-2026-national-championship-air-races-in-roswell.html" target="_blank" rel="noopener"><div class="rcat">News · 2026</div><div class="rt">2026 NCAR Roswell — Tickets Available</div><div class="ru">vintageaviationnews.com</div><div class="rd">Full lineup confirmed: all 7 classes, USAF Thunderbirds, Sept 16–20 2026 at Roswell Air Center.</div></a>
     <a class="rc" href="https://www.gettyimages.com/photos/reno-championship-air-races" target="_blank" rel="noopener"><div class="rcat">Photography · Wire</div><div class="rt">McNeely Racing — Getty Images</div><div class="ru">gettyimages.com</div><div class="rd">Professional wire photography of Greg and Gene McNeely at the NCAR — globally syndicated, never removed.</div></a>
+  </div>
+</sec>
+
+<div class="gr"></div>
+
+<sec style="background:var(--navy)">
+  <div class="se">Your Competition — 2025 Roswell Qualifying</div>
+  <h2>The T-6 Field — <em>Race #90's Rivals</em></h2>
+  <p class="lead">2025 Roswell qualifying results — the field Greg lines up against. Race #90 qualified P5 at 219.872 mph. Chris LeFave took the 2025 Gold at 238 mph. Click any pilot for their official NCAR profile.</p>
+
+  <div style="margin-bottom:28px">
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:3px;padding:14px 22px;margin-bottom:3px;display:flex;align-items:center;gap:18px">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;color:rgba(255,255,255,.1);width:52px;text-align:center;flex-shrink:0;line-height:1">Q1</div>
+      <div style="flex:1"><div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:#fff">#50 Vitaly Pecherskyy — <span style="color:var(--gold)">Abracadabra</span></div><div style="font-size:12px;color:var(--mu);margin-top:1px">AT-6C · Kyiv, Ukraine · 237.827 mph</div></div>
+      <a href="https://airrace.org/t-6/vitaly-pecherskyy/" target="_blank" rel="noopener" style="font-size:11px;color:var(--gold);text-decoration:none;white-space:nowrap;letter-spacing:.06em">NCAR Profile →</a>
+    </div>
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:3px;padding:14px 22px;margin-bottom:3px;display:flex;align-items:center;gap:18px">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;color:rgba(255,255,255,.1);width:52px;text-align:center;flex-shrink:0;line-height:1">Q2</div>
+      <div style="flex:1"><div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:#fff">#43 Chris LeFave — <span style="color:var(--gold)">Midnight Miss III</span></div><div style="font-size:12px;color:var(--mu);margin-top:1px">AT-6C · Caldwell, ID · 236.295 mph qualifying · <strong style="color:#e8b84b">2025 Gold Race Winner 238 mph</strong></div></div>
+      <a href="https://airrace.org/t-6/chris-lefave/" target="_blank" rel="noopener" style="font-size:11px;color:var(--gold);text-decoration:none;white-space:nowrap;letter-spacing:.06em">NCAR Profile →</a>
+    </div>
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:3px;padding:14px 22px;margin-bottom:3px;display:flex;align-items:center;gap:18px">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;color:rgba(255,255,255,.1);width:52px;text-align:center;flex-shrink:0;line-height:1">Q3</div>
+      <div style="flex:1"><div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:#fff">#66 Vic McMann — <span style="color:var(--gold)">Gunslinger</span></div><div style="font-size:12px;color:var(--mu);margin-top:1px">AT-6A · Blaine, WA · Sponsor: Tulsa Engines · 234.773 mph</div></div>
+      <a href="https://airrace.org/t-6/vic-mcmann/" target="_blank" rel="noopener" style="font-size:11px;color:var(--gold);text-decoration:none;white-space:nowrap;letter-spacing:.06em">NCAR Profile →</a>
+    </div>
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:3px;padding:14px 22px;margin-bottom:3px;display:flex;align-items:center;gap:18px">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;color:rgba(255,255,255,.1);width:52px;text-align:center;flex-shrink:0;line-height:1">Q4</div>
+      <div style="flex:1"><div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:#fff">#5 Joey "Gordo" Sanders — <span style="color:var(--gold)">Big Red</span></div><div style="font-size:12px;color:var(--mu);margin-top:1px">SNJ-4 · Jasper, AL · Sponsor: Sanders Aviation · 219.918 mph</div></div>
+      <a href="https://airrace.org/t-6/gordo-sanders/" target="_blank" rel="noopener" style="font-size:11px;color:var(--gold);text-decoration:none;white-space:nowrap;letter-spacing:.06em">NCAR Profile →</a>
+    </div>
+    <div style="background:rgba(200,146,42,.15);border:2px solid var(--gold);border-radius:3px;padding:14px 22px;margin-bottom:3px;display:flex;align-items:center;gap:18px">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;color:var(--gold);width:52px;text-align:center;flex-shrink:0;line-height:1">Q5</div>
+      <div style="flex:1"><div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:#fff">#90 Greg McNeely — <span style="color:var(--gold)">Undecided</span> ★</div><div style="font-size:12px;color:var(--mu);margin-top:1px">T-6G · Port Orange, FL · <strong style="color:var(--glt)">219.872 mph · McNeely Racing</strong></div></div>
+      <a href="https://airrace.org/t-6/greg-mcneely/" target="_blank" rel="noopener" style="font-size:11px;color:var(--gold);text-decoration:none;white-space:nowrap;letter-spacing:.06em">NCAR Profile →</a>
+    </div>
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:3px;padding:14px 22px;margin-bottom:3px;display:flex;align-items:center;gap:18px">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;color:rgba(255,255,255,.1);width:52px;text-align:center;flex-shrink:0;line-height:1">Q6</div>
+      <div style="flex:1"><div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:#fff">#18 Lee Oman — <span style="color:var(--gold)">Bama Belle</span></div><div style="font-size:12px;color:var(--mu);margin-top:1px">AT-6 · Sequim, WA · 201.628 mph</div></div>
+      <a href="https://airrace.org/t-6/lee-oman/" target="_blank" rel="noopener" style="font-size:11px;color:var(--gold);text-decoration:none;white-space:nowrap;letter-spacing:.06em">NCAR Profile →</a>
+    </div>
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:3px;padding:14px 22px;display:flex;align-items:center;gap:18px">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;color:rgba(255,255,255,.1);width:52px;text-align:center;flex-shrink:0;line-height:1">Q7</div>
+      <div style="flex:1"><div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:#fff">#19 Michael Sisk — <span style="color:var(--gold)">Redneck Fury</span></div><div style="font-size:12px;color:var(--mu);margin-top:1px">T-6G · Alpine, WY · 185.546 mph</div></div>
+      <a href="https://airrace.org/t-6/michael-sisk/" target="_blank" rel="noopener" style="font-size:11px;color:var(--gold);text-decoration:none;white-space:nowrap;letter-spacing:.06em">NCAR Profile →</a>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+    <a href="https://airrace.org/features/2025-racers-t-6/" target="_blank" rel="noopener" style="background:var(--nm);border:1px solid rgba(255,255,255,.07);border-radius:3px;padding:18px;text-decoration:none;display:block">
+      <div style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:5px">NCAR Official</div>
+      <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:3px">2025 Full Racer Lineup</div>
+      <div style="font-size:11px;color:var(--mu)">airrace.org</div>
+    </a>
+    <a href="https://www.racingt-6.org/pilots-and-planes-2025/" target="_blank" rel="noopener" style="background:var(--nm);border:1px solid rgba(255,255,255,.07);border-radius:3px;padding:18px;text-decoration:none;display:block">
+      <div style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:5px">T-6 Racing Association</div>
+      <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:3px">Pilots & Planes 2025</div>
+      <div style="font-size:11px;color:var(--mu)">racingt-6.org</div>
+    </a>
+    <a href="https://reports.airrace.org/2025/2025.T6.Qualifiers.pdf" target="_blank" rel="noopener" style="background:var(--nm);border:1px solid rgba(255,255,255,.07);border-radius:3px;padding:18px;text-decoration:none;display:block">
+      <div style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:5px">Official PDF</div>
+      <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:3px">2025 Qualifying Results</div>
+      <div style="font-size:11px;color:var(--mu)">reports.airrace.org</div>
+    </a>
   </div>
 </sec>
 </div>
@@ -427,6 +518,12 @@ footer{background:#040c18;border-top:1px solid rgba(200,146,42,.1);padding:36px 
 
 <script>
 const pages=['home','pilot','racing','aircraft','sponsors','sponsorus','contact'];
+function toggleMenu(){
+  const btn=document.getElementById('hb-btn');
+  const menu=document.getElementById('mob-menu');
+  btn.classList.toggle('open');
+  menu.classList.toggle('open');
+}
 function go(id){
   pages.forEach(p=>{
     const pg=document.getElementById('p-'+p);
